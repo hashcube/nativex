@@ -1,0 +1,22 @@
+{
+	"code": [
+		"NativeXPlugin.h",
+		"NativeXPlugin.mm"
+	],
+	"frameworks": [
+		"CoreGraphics",
+		"Foundation",
+		"UIKit",
+		"MessageUI",
+		"StoreKit",
+		"MediaPlayer",
+		"SystemConfiguration"
+	],
+	"libraries": [
+		"NativeXiOSSDK-5_0_5"
+	],
+	"userDefined": [
+	],
+	"plist": {
+	}
+}
