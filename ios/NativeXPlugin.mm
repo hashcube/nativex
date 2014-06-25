@@ -63,7 +63,6 @@
     self.appid = appid;
     [[NativeXSDK sharedInstance] setDelegate:self];
     [[NativeXSDK sharedInstance] createSessionWithAppId:self.appid];
-    [[NativeXSDK sharedInstance] setShouldOutputDebugLog:YES];
 }
 
 - (void) applicationWillTerminate:(UIApplication *)app {
