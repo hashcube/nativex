@@ -10,7 +10,10 @@
 		"MessageUI",
 		"StoreKit",
 		"MediaPlayer",
-		"SystemConfiguration"
+		"SystemConfiguration",
+		"AdSupport",
+		"libsqlite3.dylib",
+		"NativeXiOSSDK-5_0_5/libNativeXSDK.a"
 	],
 	"libraries": [
 		"NativeXiOSSDK-5_0_5"

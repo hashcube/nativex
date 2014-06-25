@@ -1,5 +1,4 @@
 #import "NativeXPlugin.h"
-#import "NativeXSDK.h"
 
 @implementation NativeXPlugin
 
@@ -19,11 +18,11 @@
 	return self;
 }
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [[NativeXSDK sharedInstance] setDelegate:self];
-    [[NativeXSDK sharedInstance] createSessionWithAppId:self.appid];
-    [[NativeXSDK sharedInstance] setShouldOutputDebugLog:YES];
-}
+// Called if the SDK initiates successfully
+- (void)nativeXSDKDidCreateSession{ }
+
+// Called if the SDK fails to initiate.
+- (void)nativeXSDKDidFailToCreateSession:(NSError *)error{ }
 
 - (void)nativeXAdView:(NativeXAdView *)adView didLoadWithPlacement:(NSString *)placement {
     //Called when an ad has been loaded/cached and is ready to be shown
@@ -58,9 +57,13 @@
 }
 
 - (void) initializeWithManifest:(NSDictionary *)manifest appDelegate:(TeaLeafAppDelegate *)appDelegate {
+    NSDictionary *ios = [manifest valueForKey:@"ios"];
     NSString *appid = [ios valueForKey:@"nativexappid"];
 
     self.appid = appid;
+    [[NativeXSDK sharedInstance] setDelegate:self];
+    [[NativeXSDK sharedInstance] createSessionWithAppId:self.appid];
+    [[NativeXSDK sharedInstance] setShouldOutputDebugLog:YES];
 }
 
 - (void) applicationWillTerminate:(UIApplication *)app {
